@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-prd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-prd
+  template:
+    metadata:
+      labels:
+        app: nginx-prd
+    spec:
+      containers:
+      - image: nginx
+        name: nginx-prd
+        ports:
+        - containerPort: 80
+          name: http
